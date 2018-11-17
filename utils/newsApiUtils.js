@@ -13,13 +13,13 @@ cr = cr.split(" ")
  */
 export const topCountryNewsUrl = (country=IN) => {
     return TOPNEWS_URL
-        + "?country="
-        +country
-        +"&"
-        +NEWS_API.API_KEY_PROP
-        +
-        "="
-        +NEWS_API.key;
+        + '?country='
+        + country
+        + '&'
+        + NEWS_API.API_KEY_PROP
+        + '='
+        + NEWS_API.key
+        + '&' + NEWS_API.PAGE_SIZE + '=50';
 }
 
 /**
@@ -47,6 +47,7 @@ export const nigonifyData = (nonNigonifiedItems) => {
                 nigonifiedItem.publishedAt = formatDateToHoursAgo(data.publishedAt);
                 nigonifiedItems.push(nigonifiedItem)
             })
+            console.log('Nigonified ' + nigonifiedItems.length + ' items')
             resolve(nigonifiedItems)
         } else {
             console.log("Could not nigonify")
@@ -64,12 +65,12 @@ export const fetchNews = (country = IN) => {
         let options = {
             url : topCountryNewsUrl(country)
         }
-        console.log("Preparing to request news from API")
+        console.log("Preparing to request news from API with url " + options.url)
         request.get(options, (error, res, body) => {
             if(error) {
                 reject(error) // Rejects the Promise
             } else {
-                console.log("Serving news from the API")
+                console.log("Serving news  from the API")
                 resolve(body) // The JSON will be served to the then entry
             }
         })

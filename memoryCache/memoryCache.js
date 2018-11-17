@@ -1,6 +1,6 @@
 //https://www.mojotech.com/blog/node-js-memory-cache/
 class MemoryCache {
-    constructor(fetchFunction, minutesToLive = 60) { // Cache 1 hour default
+    constructor(fetchFunction, minutesToLive = 2) { // Cache 1 hour default
         this.millisecondsToLive = minutesToLive * 60 * 1000;
         this.fetchFunction = fetchFunction;
         this.cache = null;
@@ -25,7 +25,7 @@ class MemoryCache {
                     return data;
                 });
         } else {
-            console.log('Cache hit');
+            console.log('Cache hit at ' + new Date().toISOString());
             return Promise.resolve(this.cache);
         }
     }
