@@ -42,9 +42,9 @@ export const nigonifyData = (nonNigonifiedItems) => {
                 nigonifiedItem.tags =  [];
                 nigonifiedItem.leftImage =  data.urlToImage;
                 nigonifiedItem.alt = data.title;
-                nigonifiedItem.description =  data.description;
+                nigonifiedItem.description =  data.content;
                 nigonifiedItem.source = data.source
-                nigonifiedItem.publishedAt = data.publishedAt;
+                nigonifiedItem.publishedAt = formatDateToHoursAgo(data.publishedAt);
                 nigonifiedItems.push(nigonifiedItem)
             })
             resolve(nigonifiedItems)
@@ -83,4 +83,9 @@ export const countries = () => {
         countries.push({code: item, flag: `https://www.countryflags.io/${item}/flat/64.png`});
     })
     return countries
+}
+
+const formatDateToHoursAgo = (date) => {
+    const time = Math.floor((new Date().getTime() - new Date(date).getTime())/1000/3600)
+    return  time > 1 ? time + ' hours ago' : 'Just in..'
 }
