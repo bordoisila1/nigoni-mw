@@ -52,7 +52,7 @@ router.get('/api/v1/news/:id', (req, res) => {
 });
 
 //Router /api/v1/news/countries -> Returns the countries one can use for news
-router.get("/api/v1`/countries", (req, res) => {
+router.get("/api/v1/countries", (req, res) => {
     res.status(200).send({
         success: 'true',
         message: 'Countries',

@@ -78,5 +78,9 @@ export const fetchNews = (country = IN) => {
 }
 
 export const countries = () => {
-    return cr
+    let countries = []
+    cr.map((item, index) => {
+        countries.push({code: item, flag: `https://www.countryflags.io/${item}/flat/64.png`});
+    })
+    return countries
 }
