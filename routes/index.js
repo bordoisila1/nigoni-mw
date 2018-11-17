@@ -11,14 +11,14 @@ let latestNewsCountry = new Map();
 router.get('/api/v1/news', (req, res) => {
     latestNews.getData().then((items) => nigonifyData(items)).then(
         (data) => {
-            res.status(200).send({
+            res.status(200).set('Access-Control-Allow-Origin', '*').send({
                 success: 'true',
                 message: 'Top news from India',
                 news: data,
             })
         }).catch(
         (err) => {
-            res.status(500).send({
+            res.status(500).set('Access-Control-Allow-Origin', '*').send({
                 success: 'false',
                 message: 'Oops ! Something went wrong',
                 news: err + '',
@@ -36,14 +36,14 @@ router.get('/api/v1/news/:id', (req, res) => {
     }
     fetcher.getData().then((items) => nigonifyData(items)).then(
         (data) => {
-            res.status(200).send({
+            res.status(200).set('Access-Control-Allow-Origin', '*').send({
                 success: 'true',
                 message: `News from ${req.params.id}`,
                 news: data,
             })
         }).catch(
         (err) => {
-            res.status(500).send({
+            res.status(500).set('Access-Control-Allow-Origin', '*').send({
                 success: 'false',
                 message: 'Oops ! Something went wrong',
                 news: err + '',
@@ -53,7 +53,7 @@ router.get('/api/v1/news/:id', (req, res) => {
 
 //Router /api/v1/news/countries -> Returns the countries one can use for news
 router.get("/api/v1/countries", (req, res) => {
-    res.status(200).send({
+    res.status(200).set('Access-Control-Allow-Origin', '*').send({
         success: 'true',
         message: 'Countries',
         countries: countries(),
