@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(router)
 
-const PORT = config.get('port');
+const PORT = process.env.PORT || config.get('port');
 
 app.listen(PORT, () => {
     console.log(`server running on port ${PORT}`)
