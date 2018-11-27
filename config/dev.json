@@ -1,3 +1,4 @@
 {
-  "accessControlHeaderOrigin" : "localhost:3000"
+  "accessControlHeaderOrigin" : "localhost:3000",
+  "port": 5000
 }

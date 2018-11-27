@@ -9,9 +9,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(router)
 
-const PORT = 5000;
-
-console.log('****' + process.env.NODE_ENV)
+const PORT = config.get('port');
 
 app.listen(PORT, () => {
     console.log(`server running on port ${PORT}`)

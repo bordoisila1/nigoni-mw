@@ -1,3 +1,4 @@
 {
-  "accessControlHeaderOrigin" : "https://www.nigoni.com"
+  "accessControlHeaderOrigin" : "https://www.nigoni.com",
+  "port": 5000
 }
