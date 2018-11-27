@@ -5,8 +5,10 @@ const NEWS_API = config.newsApi;
 const TOPNEWS_URL = NEWS_API.domain + NEWS_API.version + NEWS_API.topHeadlinesPath;
 const IN = "in";
 
-let cr = 'ae ar at au be bg br ca ch cn co cu cz de eg fr gb gr hk hu id ie il in it jp kr lt lv ma mx my ng nl no nz ph pl pt ro rs ru sa se sg si sk th tr tw ua us ve za';
-cr = cr.split(" ")
+const cr = ['ae', 'ar', 'at', 'au', 'be', 'bg', 'br', 'ca', 'ch', 'cn', 'co', 'cu', 'cz', 'de', 'eg', 'fr', 'gb', 'gr',
+            'hk', 'hu', 'id', 'ie', 'il', 'in', 'it', 'jp', 'kr', 'lt', 'lv', 'ma', 'mx', 'my', 'ng', 'nl', 'no', 'nz',
+            'ph', 'pl', 'pt', 'ro', 'rs', 'ru', 'sa', 'se', 'sg', 'si', 'sk', 'th', 'tr', 'tw', 'ua', 'us', 've', 'za',
+];
 
 /**
  * Returns news related to a country
@@ -19,8 +21,10 @@ export const topCountryNewsUrl = (country=IN) => {
         + NEWS_API.API_KEY_PROP
         + '='
         + NEWS_API.key
-        + '&' + NEWS_API.PAGE_SIZE + '=50';
-}
+        + '&'
+        + NEWS_API.PAGE_SIZE
+        + '=50';
+};
 
 /**
  * Converts the data to an acceptable format for the React FE

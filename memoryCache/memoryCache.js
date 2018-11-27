@@ -14,7 +14,7 @@ class MemoryCache {
             < new Date().getTime(); // Last fetched + Max TTL lesser than the current time ?
     }
     getData() {
-        if (this.isCacheExpired()|| !this.cache) {
+        if (this.isCacheExpired() || !this.cache) {
             // Real world will have the cache ALWAYS
             // filled after first chance and only TTL will handle all
             console.log('Cache expired - fetching new data');

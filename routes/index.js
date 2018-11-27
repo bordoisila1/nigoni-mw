@@ -1,10 +1,10 @@
 import express from 'express';
 import MemoryCache from '../memoryCache/memoryCache';
-import {fetchNews, countries, nigonifyData} from "../utils/newsApiUtils";
+import { fetchNews, countries, nigonifyData } from "../utils/newsApiUtils";
 
 const router = express.Router();
-const latestNews = new MemoryCache(fetchNews)
-//Stores a map of country specific news
+const latestNews = new MemoryCache(fetchNews);
+// Stores a map of country specific news
 let latestNewsCountry = new Map();
 
 //News for India - DEFAULT
