@@ -1,14 +1,11 @@
-import config from '../config'
+import config from 'config'
 import request from "request";
 
-const NEWS_API = config.newsApi;
+const NEWS_API = config.get('newsApi');
 const TOPNEWS_URL = NEWS_API.domain + NEWS_API.version + NEWS_API.topHeadlinesPath;
 const IN = "in";
 
-const cr = ['ae', 'ar', 'at', 'au', 'be', 'bg', 'br', 'ca', 'ch', 'cn', 'co', 'cu', 'cz', 'de', 'eg', 'fr', 'gb', 'gr',
-            'hk', 'hu', 'id', 'ie', 'il', 'in', 'it', 'jp', 'kr', 'lt', 'lv', 'ma', 'mx', 'my', 'ng', 'nl', 'no', 'nz',
-            'ph', 'pl', 'pt', 'ro', 'rs', 'ru', 'sa', 'se', 'sg', 'si', 'sk', 'th', 'tr', 'tw', 'ua', 'us', 've', 'za',
-];
+const cr = config.countryFlags.countries;
 
 /**
  * Returns news related to a country
@@ -85,7 +82,7 @@ export const fetchNews = (country = IN) => {
 export const countries = () => {
     let countries = []
     cr.map((item, index) => {
-        countries.push({code: item, flag: `https://www.countryflags.io/${item}/flat/64.png`});
+        countries.push({code: item, flag: `${config.countryFlags.domain}/${item}/flat/64.png`});
     })
     return countries
 }
